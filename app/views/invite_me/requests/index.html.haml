@@ -1,0 +1,23 @@
+= flash[:success]
+= flash[:error]
+%h2 Invite Requests
+%table
+  %thead
+    %th Email
+    %th Request Time
+    %th Referrer Url
+    %th Landing Page
+    %th Invite Status
+  %tbody
+    - @requests.each do |request|
+      %tr
+        %td= request.email
+        %td= request.created_at.to_s(:short)
+        %td= request.referring_url
+        %td= request.landing_url
+        %td
+          - if request.invited?
+            .success= request.invited_at.to_s(:short)
+          - else
+            = form_for request, url: request_invite_path(request), method: 'PUT' do |f|
+              = f.submit "INVITE"

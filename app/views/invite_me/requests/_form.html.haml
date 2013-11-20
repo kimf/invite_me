@@ -1,0 +1,5 @@
+= form_for @request do |f|
+  - if @request.errors[:email]
+    .error= "Email #{@request.errors[:email].to_sentence}"
+  = f.text_field :email, label: 'Email', required: 'required', placeholder: 'your.email@domain.com', type: 'email'
+  = f.submit "Invite Me"

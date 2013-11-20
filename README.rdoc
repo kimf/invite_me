@@ -1,3 +1,27 @@
-= InviteMe
+= InviteMe - a mountable engine for rails >= 4
+
+So you're creating a new site to promote your new startup, and want to collect invite requests?
+
+
+== Features
+- Collect beta requests and send "Thank you, soon soon" - email.
+- Admin page (protected with Basic Auth) with referring_url and landing_page information on each invite request.
+- Promote the invite request to a full User and send the "You're on of the lucky ones"-email.
+
+
+== How to use
+
+include gem in your Gemfile
+  gem 'invite_me'
+  bundle install
+
+Mount it in your routes
+  mount InviteMe::Engine => "/"
+
+Install and override views (if you want to)
+  rails g invite_me:views
+  
+Become rich and remove gem when you're out of beta.
+
 
 This project rocks and uses MIT-LICENSE.

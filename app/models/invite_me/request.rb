@@ -8,7 +8,6 @@ module InviteMe
 
 
     def downcase_email
-      puts self.email.to_s
       self.email = self.email.downcase
     end
 
